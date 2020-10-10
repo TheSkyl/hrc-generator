@@ -1,0 +1,57 @@
+@layout("/common/_container.html"){
+<script src="${ctxPath}/static/js/plugins/suggest/bootstrap-suggest.min.js"></script>
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <input type="hidden" id="id" value="${item.id}">
+            <input type="hidden" id="department" value="${item.department}">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                            <#input id="name" name="耗材名称" value="${item.name}" underline="true"/>
+                            <#input id="number" name="耗材编号" value="${item.number}" underline="true"/>
+                            <#input id="specification" name="规格型号" value="${item.specification}" underline="true"/>
+                    <#input id="price" name="耗材单价" value="${item.price}" />
+                </div>
+
+                <div class="col-sm-6">
+                            <#input id="measureUnit" name="计量单位" value="${item.measureUnit}" underline="true"/>
+                            <#input id="manufacturer" name="生产企业" value="${item.manufacturer}" underline="true"/>
+                    <div class="form-group">
+                    <label class="col-sm-3 control-label">所属门店</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="departmentValue" value="${item.departmentName}"
+                                   @if(tool.isNotEmpty(departmentId)){
+                                   readonly disabled >
+                            @}else{
+                            >
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown">
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
+                            </div>
+                            @}
+                            <!-- /btn-group -->
+                        </div>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                            <#input id="amount" name="数量" value="${item.amount}" underline="true"/>
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="ConsumableInfoDlg.editSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="ConsumableInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/goods/consumable/consumable_info.js"></script>
+@}

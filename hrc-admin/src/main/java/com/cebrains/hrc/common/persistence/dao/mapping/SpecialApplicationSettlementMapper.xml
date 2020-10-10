@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cebrains.hrc.common.persistence.dao.SpecialApplicationSettlementMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cebrains.hrc.common.persistence.model.SpecialApplicationSettlement">
+        <id column="id" property="id" />
+        <result column="special_application" property="specialApplication" />
+        <result column="amount" property="amount" />
+        <result column="pay_type" property="payType" />
+        <result column="payment_description" property="paymentDescription" />
+        <result column="payee" property="payee" />
+        <result column="pay_time" property="payTime" />
+        <result column="create_time" property="createTime" />
+        <result column="flag" property="flag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, special_application AS specialApplication, amount, pay_type AS payType, payment_description AS paymentDescription, payee, pay_time AS payTime, create_time AS createTime, flag
+    </sql>
+    <select id="paymentInfo" parameterType="java.lang.Integer" resultType="java.util.Map">
+        SELECT
+	sae.cost,
+	ifnull((SELECT sum(sas.amount)
+					FROM special_application_settlement sas
+					WHERE sas.special_application = sae.special_application), 0) payed,
+	(SELECT m.real_name
+	 FROM special_application sa LEFT JOIN member m ON m.id = sa.member
+	 WHERE sa.id = sae.special_application)                              member
+FROM special_application_exec sae
+        WHERE sae.special_application = #{said}
+    </select>
+    <select id="selectListByNumber"  resultMap="BaseResultMap">
+       SELECT sas.*
+FROM special_application_settlement sas
+	LEFT JOIN special_application sa ON sas.special_application = sa.id
+WHERE sa.application_number LIKE CONCAT('%', #{san},'%')
+ <if test="did != null">
+ AND sa.department = #{did}
+ </if>
+    </select>
+
+</mapper>

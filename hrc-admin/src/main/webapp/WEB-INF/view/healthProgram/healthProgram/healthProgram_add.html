@@ -1,0 +1,39 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <input type="hidden" id="id" value="">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                            <#input id="name" name="方案名称" underline="true"/>
+                    <label class="col-sm-3 control-label">症状描述</label><br/><br/>
+                    <textarea id="symptom" name="symptom" class="form-control" rows="5"></textarea>
+                    <div class="hr-line-dashed"></div>
+                </div>
+
+                <div class="col-sm-6">
+                    <#select id="category" name="方案分类" underline="true">
+                    @for(c in categories){
+                    <option value="${c.id}">${c.name}</option>
+                    @}
+                </#select>
+                    <label class="col-sm-3 control-label">方案描述</label><br/><br/>
+                    <textarea id="program" name="program" class="form-control" rows="5"></textarea>
+                    <div class="hr-line-dashed"></div>
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="HealthProgramInfoDlg.addSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="HealthProgramInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/healthProgram/healthProgram/healthProgram_info.js"></script>
+@}

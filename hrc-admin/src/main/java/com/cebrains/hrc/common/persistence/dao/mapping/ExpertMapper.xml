@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cebrains.hrc.common.persistence.dao.ExpertMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cebrains.hrc.common.persistence.model.Expert">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="birthday" property="birthday" />
+        <result column="address" property="address" />
+        <result column="phone" property="phone" />
+        <result column="specialty" property="specialty" />
+        <result column="profile" property="profile" />
+        <result column="create_time" property="createTime" />
+        <result column="flag" property="flag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, birthday, address, phone, specialty, profile, create_time AS createTime, flag
+    </sql>
+
+</mapper>

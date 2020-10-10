@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cebrains.hrc.common.persistence.dao.MemberSettlementMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cebrains.hrc.common.persistence.model.MemberSettlement">
+        <id column="id" property="id" />
+        <result column="treatment" property="treatment" />
+        <result column="member" property="member" />
+        <result column="payment_method" property="paymentMethod" />
+        <result column="membership_card" property="membershipCard" />
+        <result column="payment_amount" property="paymentAmount" />
+        <result column="member_rating" property="memberRating" />
+        <result column="foreground_rating" property="foregroundRating" />
+        <result column="technician_rating" property="technicianRating" />
+        <result column="manager_rating" property="managerRating" />
+        <result column="status" property="status" />
+        <result column="created_by" property="createdBy" />
+        <result column="department" property="department" />
+        <result column="status" property="status" />
+        <result column="create_time" property="createTime" />
+        <result column="flag" property="flag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, treatment, payment_method AS paymentMethod, membership_card AS membershipCard, payment_amount AS paymentAmount, member_rating AS memberRating, foreground_rating AS foregroundRating, technician_rating AS technicianRating, manager_rating AS managerRating, status,created_by AS createdBy, member, department, create_time AS createTime, flag
+    </sql>
+
+    <select id="userExperienced" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        SELECT count(1) c
+FROM member_settlement ms
+  LEFT JOIN treatment t ON t.id = ms.treatment
+WHERE exists(SELECT 1
+             FROM treatment tt
+             WHERE tt.id = #{tid} AND t.user_id = tt.user_id)
+    </select>
+
+    <select id="treatmentPriceInformation" parameterType="java.lang.Integer" resultType="java.util.Map">
+        SELECT
+        mc.discount,
+        d.price_standard pstd
+        FROM treatment t
+        LEFT JOIN membership_card mc ON t.user_id = mc.user
+        LEFT JOIN sys_dept d ON d.id = t.department
+        WHERE t.id = #{tid}
+    </select>
+
+    <select id="queryMembershipBalanceByTreatmentId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+       SELECT mc.balance
+        FROM treatment t
+          LEFT JOIN membership_card mc ON t.user_id = mc.user
+        WHERE t.id = #{tid}
+    </select>
+
+    <select id="selectByDepartment" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+       SELECT *
+FROM member_settlement ms
+  LEFT JOIN treatment t ON t.id = ms.treatment AND t.department = #{did}
+WHERE t.id IS NOT NULL
+ORDER BY ms.create_time DESC
+    </select>
+</mapper>

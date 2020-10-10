@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cebrains.hrc.common.persistence.dao.TreatmentDetailMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cebrains.hrc.common.persistence.model.TreatmentDetail">
+        <id column="id" property="id" />
+        <result column="treatment_id" property="treatmentId" />
+        <result column="settlement" property="settlement" />
+        <result column="project_id" property="projectId" />
+        <result column="consumable_id" property="consumableId" />
+        <result column="create_time" property="createTime" />
+        <result column="consumable_amount" property="consumableAmount" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, treatment_id AS treatmentId, project_id AS projectId, consumable_id AS consumableId, settlement, create_time AS createTime, consumable_amount AS consumableAmount
+    </sql>
+    <select id="findProjectNames" parameterType="java.lang.Integer" resultType="java.lang.String">
+SELECT p.name
+FROM treatment_detail td
+	LEFT JOIN project p ON p.id = td.project_id
+WHERE td.treatment_id = #{tid} AND td.project_id IS NOT NULL
+    </select>
+    <select id="findUsedConsumable" parameterType="java.lang.Integer" resultType="java.util.Map">
+SELECT
+	c.name               name,
+	td.consumable_amount amount
+FROM treatment_detail td
+	LEFT JOIN consumable c ON c.id = td.consumable_id
+WHERE td.treatment_id = #{tid} AND td.consumable_id IS NOT NULL
+    </select>
+    <select id="findProductNamesBySettlement" parameterType="java.lang.Integer" resultType="java.util.Map">
+SELECT
+	c.`name`,
+	td.consumable_amount amount
+FROM
+	treatment_detail td
+	LEFT JOIN consumable c ON c.id = td.consumable_id
+WHERE
+	td.settlement = #{settlement}
+    </select>
+
+</mapper>

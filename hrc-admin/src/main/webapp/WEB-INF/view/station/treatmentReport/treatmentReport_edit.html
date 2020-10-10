@@ -1,0 +1,98 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">会员姓名</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                ${item.memberName}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">项目</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                ${item.project}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">结果</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                ${item.summary}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">购买产品</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                ${item.product}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">耗材</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                ${item.consumable}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">消费金额</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                ${item.amount}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">所属门店</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                ${item.departmentName}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">操作员</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                ${item.createdByName}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">创建时间</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                ${item.createTime,dateFormat="yyyy-MM-dd HH:mm:ss"}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/station/treatmentReport/treatmentReport_info.js"></script>
+@}

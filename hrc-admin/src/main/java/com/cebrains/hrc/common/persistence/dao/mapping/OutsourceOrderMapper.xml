@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cebrains.hrc.common.persistence.dao.OutsourceOrderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cebrains.hrc.common.persistence.model.OutsourceOrder">
+        <id column="id" property="id" />
+        <result column="supplier" property="supplier" />
+        <result column="order_number" property="orderNumber" />
+        <result column="receiver" property="receiver" />
+        <result column="receiver_phone" property="receiverPhone" />
+        <result column="receiver_address" property="receiverAddress" />
+        <result column="purchase_memo" property="purchaseMemo" />
+        <result column="remark" property="remark" />
+        <result column="status" property="status" />
+        <result column="created_time" property="createdTime" />
+        <result column="created_by" property="createdBy" />
+        <result column="flag" property="flag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, order_number AS orderNumber, supplier, receiver, receiver_phone AS receiverPhone, receiver_address AS receiverAddress, purchase_memo AS purchaseMemo, remark, status, created_time AS createdTime, created_by AS createdBy, flag
+    </sql>
+
+</mapper>

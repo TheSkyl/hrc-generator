@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cebrains.hrc.common.persistence.dao.SpecialApplicationMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cebrains.hrc.common.persistence.model.SpecialApplication">
+        <id column="id" property="id" />
+        <result column="member" property="member" />
+        <result column="project" property="project" />
+        <result column="condition_description" property="conditionDescription" />
+        <result column="disease_history" property="diseaseHistory" />
+        <result column="recent_check" property="recentCheck" />
+        <result column="recent_treatment" property="recentTreatment" />
+        <result column="remark" property="remark" />
+        <result column="department" property="department" />
+        <result column="create_time" property="createTime" />
+        <result column="flag" property="flag" />
+        <result column="created_by" property="createdBy" />
+        <result column="status" property="status" />
+        <result column="application_number" property="applicationNumber" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, member, project, condition_description AS conditionDescription, disease_history AS diseaseHistory, recent_check AS recentCheck, recent_treatment AS recentTreatment, remark, department, create_time AS createTime, flag, created_by AS createdBy, status, application_number AS applicationNumber
+    </sql>
+
+    <select id="getMemberNameBySpecialApplication" parameterType="java.lang.Integer" resultType="java.lang.String">
+SELECT m.real_name
+FROM special_application sa
+  LEFT JOIN member m ON m.id = sa.member
+WHERE sa.id = #{sa}
+    </select>
+
+    <select id="findSuggest"  resultType="com.cebrains.hrc.common.persistence.vo.SpecialApplicationSuggestVo">
+SELECT
+	sa.id                 ,
+	m.real_name           member,
+	sa.application_number number
+FROM special_application sa
+	LEFT JOIN member m ON m.id = sa.member
+WHERE sa.department = #{did} AND sa.application_number LIKE CONCAT('%',#{k},'%')
+    </select>
+
+</mapper>

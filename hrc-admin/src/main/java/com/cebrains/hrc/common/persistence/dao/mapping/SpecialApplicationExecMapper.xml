@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cebrains.hrc.common.persistence.dao.SpecialApplicationExecMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cebrains.hrc.common.persistence.model.SpecialApplicationExec">
+        <id column="id" property="id" />
+        <result column="special_application" property="specialApplication" />
+        <result column="cost" property="cost" />
+        <result column="treatment_process" property="treatmentProcess" />
+        <result column="instructions" property="instructions" />
+        <result column="contact" property="contact" />
+        <result column="phone" property="phone" />
+        <result column="status" property="status" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="flag" property="flag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, special_application AS specialApplication, cost, treatment_process AS treatmentProcess, instructions, contact, phone, status, create_time AS createTime, update_time AS updateTime, flag
+    </sql>
+
+</mapper>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cebrains.hrc.common.persistence.dao.TreatmentMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cebrains.hrc.common.persistence.model.Treatment">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="department" property="department" />
+        <result column="technician" property="technician" />
+        <result column="process_description" property="processDescription" />
+        <result column="result_description" property="resultDescription" />
+        <result column="status" property="status" />
+        <result column="appointment" property="appointment" />
+        <result column="create_time" property="createTime" />
+        <result column="flag" property="flag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, user_id AS userId, department, technician, process_description AS processDescription, result_description AS resultDescription, status, appointment, create_time AS createTime, flag
+    </sql>
+
+    <select id="findTreatmentSuggest" parameterType="java.lang.String" resultType="java.util.Map">
+        SELECT
+  t.id,
+  m.real_name               name,
+  group_concat(p.name) projects,
+  t.create_time             time
+FROM treatment t
+  LEFT JOIN member m ON m.id = t.user_id
+  LEFT JOIN treatment_detail td ON t.id = td.treatment_id AND td.project_id IS NOT NULL
+  LEFT JOIN project p ON p.id = td.project_id
+  WHERE m.real_name LIKE #{k} AND NOT exists(SELECT 1
+                                            FROM member_settlement ms
+                                            WHERE ms.treatment = t.id)
+  AND td.id IS NOT NULL
+GROUP BY t.id
+    </select>
+
+    <select id="treatmentByMember" parameterType="java.lang.Integer" resultType="java.util.Map">
+        SELECT
+  t.id,
+  group_concat(p.name) projects,
+  t.create_time             time
+FROM treatment t
+  LEFT JOIN member m ON m.id = t.user_id
+  LEFT JOIN treatment_detail td ON t.id = td.treatment_id AND td.project_id IS NOT NULL
+  LEFT JOIN project p ON p.id = td.project_id
+  WHERE m.id=#{member} AND NOT exists(SELECT 1
+                                            FROM member_settlement ms
+                                            WHERE ms.treatment = t.id)
+  AND td.id IS NOT NULL
+GROUP BY t.id
+    </select>
+
+    <select id="findProjectNamesByTreatment" parameterType="java.lang.Integer" resultType="java.util.Map">
+        SELECT
+  t.id,
+  m.real_name               name,
+  group_concat(p.name) projects,
+  t.create_time             time
+FROM treatment t
+  LEFT JOIN member m ON m.id = t.user_id
+  LEFT JOIN treatment_detail td ON t.id = td.treatment_id AND td.project_id IS NOT NULL
+  LEFT JOIN project p ON p.id = td.project_id
+  WHERE t.id=#{treatment}
+  AND td.id IS NOT NULL
+GROUP BY t.id limit 1
+    </select>
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cebrains.hrc.common.persistence.dao.MedicineSupplierMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cebrains.hrc.common.persistence.model.MedicineSupplier">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="category" property="category" />
+        <result column="address" property="address" />
+        <result column="phone" property="phone" />
+        <result column="contact" property="contact" />
+        <result column="contact_phone" property="contactPhone" />
+        <result column="legal_person" property="legalPerson" />
+        <result column="business_license" property="businessLicense" />
+        <result column="bank" property="bank" />
+        <result column="account_number" property="accountNumber" />
+        <result column="create_time" property="createTime" />
+        <result column="flag" property="flag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, category, address, phone, contact, contact_phone AS contactPhone, legal_person AS legalPerson, business_license AS businessLicense, bank, account_number AS accountNumber, create_time AS createTime, flag
+    </sql>
+
+</mapper>

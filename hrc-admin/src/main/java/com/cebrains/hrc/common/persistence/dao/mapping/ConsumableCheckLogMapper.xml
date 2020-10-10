@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cebrains.hrc.common.persistence.dao.ConsumableCheckLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cebrains.hrc.common.persistence.model.ConsumableCheckLog">
+        <id column="id" property="id" />
+        <result column="consumable" property="consumable" />
+        <result column="amount" property="amount" />
+        <result column="memo" property="memo" />
+        <result column="create_time" property="createTime" />
+        <result column="created_by" property="createdBy" />
+        <result column="flag" property="flag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, consumable, amount, memo, create_time AS createTime, created_by AS createdBy, flag
+    </sql>
+
+    <select id="selectListByDepartment" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select *
+from consumable_check_log ccl
+where exists(select 1 from consumable c where c.id = ccl.consumable
+                                          and c.department = #{department})
+    </select>
+</mapper>

@@ -1,0 +1,78 @@
+@layout("/common/_container.html"){
+<script src="${ctxPath}/static/js/plugins/suggest/bootstrap-suggest.min.js"></script>
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <input type="hidden" id="id" value="">
+            <input type="hidden" id="member" value="">
+            <input type="hidden" id="department" value="">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">会员姓名</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="memberValue">
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
+                                </div>
+                                <!-- /btn-group -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                            <#input id="project" name="项目" underline="true"/>
+                            <#input id="summary" name="结果" underline="true"/>
+                            <#input id="product" name="购买产品"/>
+                </div>
+
+                <div class="col-sm-6">
+                    <#input id="consumable" name="耗材" underline="true"/>
+                            <#input id="amount" name="消费金额" underline="true"/>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">所属门店</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="departmentValue" value="${departmentName}"
+                                       @if(tool.isNotEmpty(departmentId)){
+                                       readonly disabled >
+                                @}else{
+                                >
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
+                                </div>
+                                @}
+                                <!-- /btn-group -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <#select id="createdBy" name="操作员">
+                    @for(p in users){
+                    <option value="${p.id}">${p.name}</option>
+                    @}
+                </#select>
+            </div>
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="TreatmentReportInfoDlg.addSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="TreatmentReportInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/station/treatmentReport/treatmentReport_info.js"></script>
+@}

@@ -1,0 +1,134 @@
+@layout("/common/_container.html"){
+<script src="${ctxPath}/static/js/plugins/suggest/bootstrap-suggest.min.js"></script>
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <input type="hidden" id="id" value="">
+            <input type="hidden" id="clinic" value="${department}">
+            <input type="hidden" id="introducer" value="">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                            <#input id="realName" name="真实姓名" underline="true"/>
+                            <#select id="gender" name="性别" underline="true">
+                            @for(dict in genderDict){
+                            <option value="${dict.num}">${dict.name}</option>
+                            @}
+                            </#select>
+                            <#input id="idCard" name="身份证号" underline="true"/>
+                            <#input id="phone" name="手机号码" underline="true"/>
+                            <#avatar id="avatar" name="头像" underline="true"/>
+                            <#input id="wechat" name="微信" underline="true"/>
+                            <#avatar id="wechatQRCode" name="微信二维码" underline="true"/>
+                            <#input id="nickname" name="昵称" underline="true"/>
+                            <#input id="birthday" name="生日" underline="true"
+                            clickFun="laydate({istime: false, format: 'YYYY-MM-DD'})" />
+                            <#input id="height" name="身高(cm)" underline="true"/>
+                            <#input id="weight" name="体重(kg)" underline="true"/>
+                            <#select id="bloodType" name="血型" underline="true">
+                                @for(dict in bloodTypeDict){
+                                    <option value="${dict.num}">${dict.name}</option>
+                                @}
+                            </#select>
+                            <#input id="chestCircumference" name="胸围(cm)" underline="true"/>
+                            <#input id="waistCircumference" name="腰围(cm)" underline="true"/>
+                            <#input id="hipCircumference" name="臀围(cm)" underline="true"/>
+                            <#input id="occupation" name="职业" underline="true"/>
+                            <#input id="email" name="邮箱" underline="true"/>
+                            <#input id="address" name="住址" underline="true"/>
+                            <#input id="mailingAddress" name="通讯地址" underline="true"/>
+                            <#select id="maritalStatus" name="婚姻状况" underline="true">
+                            @for(dict in maritalStatusDict){
+                            <option value="${dict.num}">${dict.name}</option>
+                            @}
+                            </#select>
+                            <#select id="haveChildren" name="是否有孩子" underline="true">
+                            @for(dict in yesOrNoDict){
+                            <option value="${dict.num}">${dict.name}</option>
+                            @}
+                            </#select>
+                            <#input id="childrenGender" name="孩子性别" />
+                </div>
+
+                <div class="col-sm-6">
+
+                    <#input id="childrenBirthday" name="孩子生日" underline="true"/>
+                            <#input id="familyMember" name="家庭成员" underline="true"/>
+                            <#input id="favoriteColors" name="喜欢颜色" underline="true"/>
+                            <#input id="favoriteClothingStyle" name="喜欢的服装款式" underline="true"/>
+                            <#input id="favoriteFood" name="喜欢水果" underline="true"/>
+                            <#input id="favoriteDrinking" name="喜欢饮品" underline="true"/>
+                            <#input id="favoriteMusic" name="喜欢音乐" underline="true"/>
+                            <#input id="hobby" name="其他爱好" underline="true"/>
+                            <#select id="preferredNursingTime" name="喜欢的护理时间" underline="true">
+                            @for(dict in preferredNursingTimeDict){
+                            <option value="${dict.num}">${dict.name}</option>
+                            @}
+                            </#select>
+                            <#input id="preferredContactMethod" name="最佳联系方式" underline="true"/>
+                            <#input id="preferredContactTime" name="最佳联系时间" underline="true"/>
+                            <#input id="customerServiceMemo" name="客户服务备注" underline="true"/>
+                            <#input id="geneticDiseaseHistory" name="遗传病史" underline="true"/>
+                            <#input id="pastDiseaseHistory" name="过往病史" underline="true"/>
+                            <#input id="pastTreatHistory" name="过往康护史" underline="true"/>
+                            <#input id="pastMedicineHistory" name="过往药物史" underline="true"/>
+                            <#input id="drugAllergyHistory" name="药物过敏史" underline="true"/>
+                            <#input id="alcoholAllergy" name="酒精过敏" underline="true"/>
+                            <#select id="alcoholAllergy" name="酒精过敏" underline="true">
+                            @for(dict in yesOrNoDict){
+                            <option value="${dict.num}">${dict.name}</option>
+                            @}
+                            </#select>
+                            <#input id="existingSymptom" name="现有症状" underline="true"/>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">所属门店</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="clinicValue" value="${departmentName}"
+                                        @if(fixedDept==1){
+                                               readonly disabled >
+                                        @}else{
+                                        >
+                                        <div class="input-group-btn">
+                                            <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown">
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
+                                        </div>
+                                        @}
+                                        <!-- /btn-group -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">介绍人</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="introducerValue">
+                                        <div class="input-group-btn">
+                                            <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown">
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
+                                        </div>
+                                        <!-- /btn-group -->
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="MemberInfoDlg.addSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="MemberInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/member/member/member_info.js"></script>
+@}

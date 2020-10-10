@@ -1,0 +1,120 @@
+@layout("/common/_container.html"){
+<script src="${ctxPath}/static/js/plugins/suggest/bootstrap-suggest.min.js"></script>
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <input type="hidden" id="id" value="">
+            <input type="hidden" id="member" value="">
+            <input type="hidden" id="department" value="${departmentId}">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">会员姓名</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="memberValue">
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
+                                </div>
+                                <!-- /btn-group -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <#select id="project" name="申请项目" underline="true">
+                    @for(dict in projects){
+                    <option value="${dict.num}">${dict.name}</option>
+                    @}
+                </#select>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">具体情况说明</label><br/><br/>
+                    <div class="col-sm-12">
+                        <textarea id="conditionDescription" rows="3" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">既往病史</label><br/><br/>
+                    <div class="col-sm-12">
+                        <textarea id="diseaseHistory" rows="3" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">近期检查</label><br/><br/>
+                    <div class="col-sm-12">
+                        <textarea id="recentCheck" rows="3" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                </div>
+
+                <div class="col-sm-6">
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">近期康护</label><br/><br/>
+                        <div class="col-sm-12">
+                            <textarea id="recentTreatment" rows="3" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">补充说明</label><br/><br/>
+                        <div class="col-sm-12">
+                            <textarea id="remark" rows="3" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">申请门店</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="departmentValue" value="${departmentName}"
+                                       @if(tool.isNotEmpty(departmentId)){
+                                       readonly disabled >
+                                @}else{
+                                >
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
+                                </div>
+                                @}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">申请人</label>
+                        <div class="col-sm-9">
+                            <select id="createdBy" class="form-control">
+                                @for(user in users){
+                                <option value="${user.id}">${user.name}</option>
+                                @}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <#multiAtt id="doc" name="健康报告" />
+
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="SpecialApplicationInfoDlg.addSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="SpecialApplicationInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/outsource/specialApplication/specialApplication_info.js"></script>
+@}

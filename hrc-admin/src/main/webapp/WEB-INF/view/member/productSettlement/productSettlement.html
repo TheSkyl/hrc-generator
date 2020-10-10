@@ -1,0 +1,38 @@
+@layout("/common/_container.html"){
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>产品结算管理</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <#NameCon id="condition" name="名称" />
+                            </div>
+                            <div class="col-sm-3">
+                                <#button name="搜索" icon="fa-search" clickFun="ProductSettlement.search()"/>
+                            </div>
+                        </div>
+                        <div class="hidden-xs" id="ProductSettlementTableToolbar" role="group">
+                            @if(shiro.hasPermission("/productSettlement/add")){
+                                <#button name="添加" icon="fa-plus" clickFun="ProductSettlement.openAddProductSettlement()"/>
+                            @}
+                            @if(shiro.hasPermission("/productSettlement/update")){
+                                <#button name="修改" icon="fa-plus" clickFun="ProductSettlement.openProductSettlementDetail()" space="true"/>
+                            @}
+                            @if(shiro.hasPermission("/productSettlement/delete")){
+                                <#button name="删除" icon="fa-plus" clickFun="ProductSettlement.delete()" space="true"/>
+                            @}
+                        </div>
+                        <#table id="ProductSettlementTable"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/member/productSettlement/productSettlement.js"></script>
+@}

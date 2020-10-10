@@ -1,0 +1,36 @@
+@layout("/common/_container.html"){
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>康护记录管理</h5>
+                <input type="hidden" id="ttp" value="2" />
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <#NameCon id="condition" name="名称" />
+                            </div>
+                            <div class="col-sm-3">
+                                <#button name="搜索" icon="fa-search" clickFun="Treatment.search()"/>
+                            </div>
+                        </div>
+                        <div class="hidden-xs" id="TreatmentTableToolbar" role="group">
+                            @if(shiro.hasPermission("/treatment/update")){
+                                <#button name="康护详情" icon="fa-plus" clickFun="Treatment.openTreatmentDetail()" space="true"/>
+                            @}
+                            @if(shiro.hasPermission("/memberSettlement/add")){
+                            <#button name="康护结算" icon="fa-plus" clickFun="Treatment.openAddMemberSettlement()"/>
+                            @}
+                        </div>
+                        <#table id="TreatmentTable"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/station/treatment/treatment.js"></script>
+@}

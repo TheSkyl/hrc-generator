@@ -1,0 +1,87 @@
+@layout("/common/_container.html"){
+<script src="${ctxPath}/static/js/plugins/suggest/bootstrap-suggest.min.js"></script>
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <input type="hidden" id="id" value="">
+            <input type="hidden" id="card" value="">
+            <input type="hidden" id="department" value="${departmentId}">
+            <input type="hidden" id="created" value="${userId}">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">会员卡</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="cardValue">
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                    </button>
+                                    <button type="button" id="btn-add-membership-card" class="btn btn-primary">添加
+                                        </button>
+                                    <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
+                                </div>
+                                <!-- /btn-group -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                            <!--<#input id="amount" name="充值金额" underline="true"/>-->
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">充值金额</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" id="amount" name="amount" type="text">
+                        </div>
+                        <span id="chargeTip" style="color: mediumblue;padding-left: 30px;margin-top:40px"></span></div>
+
+                    <div class="hr-line-dashed"></div>
+                            <!--<#input id="amount" name="充值金额" underline="true"/>-->
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">赠送金额</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" id="givenAmount" name="givenAmount" type="text">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">充值门店</label>
+                        <div class="col-sm-9">
+                                <input type="text" class="form-control" id="departmentName" value="${departmentName}" disabled readonly>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">操作员</label>
+                        <div class="col-sm-9">
+                                <input type="text" class="form-control" id="userName" value="${userName}" disabled readonly>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">充值备注</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" id="memo" name="memo" type="text">
+                        </div>
+                        <span id="chargeTip" style="color: mediumblue;padding-left: 30px;margin-top:40px"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="MembershipChargeLogInfoDlg.addSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="MembershipChargeLogInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/member/membershipChargeLog/membershipChargeLog_info.js"></script>
+@}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cebrains.hrc.common.persistence.dao.OutsourceOrderDeliveryMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cebrains.hrc.common.persistence.model.OutsourceOrderDelivery">
+        <id column="id" property="id" />
+        <result column="outsource_order" property="outsourceOrder" />
+        <result column="shipping_instructions" property="shippingInstructions" />
+        <result column="delivery_time" property="deliveryTime" />
+        <result column="shipping_information" property="shippingInformation" />
+        <result column="shipping_order_number" property="shippingOrderNumber" />
+        <result column="medicine_price" property="medicinePrice" />
+        <result column="shipping_price" property="shippingPrice" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="created_by" property="createdBy" />
+        <result column="flag" property="flag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, outsource_order AS outsourceOrder, shipping_instructions AS shippingInstructions, delivery_time AS deliveryTime, shipping_information AS shippingInformation, shipping_order_number AS shippingOrderNumber, medicine_price AS medicinePrice, shipping_price AS shippingPrice, create_time AS createTime, update_time AS updateTime, created_by AS createdBy, flag
+    </sql>
+
+</mapper>

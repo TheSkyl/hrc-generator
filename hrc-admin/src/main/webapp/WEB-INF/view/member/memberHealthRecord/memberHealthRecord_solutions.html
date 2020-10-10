@@ -1,0 +1,71 @@
+@layout("/common/_container.html"){
+<style>
+    body{
+        background:white !important;
+    }
+    .col-sm-3{
+        padding-right:0px !important;
+    }
+    .col-sm-9{
+        padding-left:0px !important;
+    }
+    .list-group-item {
+        border-radius: 0px !important;
+    }
+</style>
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+            <div>
+            <div class="col-sm-3">
+                <div class="list-group">
+                    @for(c in item){
+                    <a href="#" class="list-group-item slist" data-id="${c.name}"">
+                        <span class="glyphicon glyphicon-file"></span> ${c.name}
+                    </a>
+                    @}
+                </div>
+            </div>
+            <div class="col-sm-9 sdetail">
+                    @for(c in item){
+                        <div class="list-group sgdetail" data-id="${c.name}" style="display:none;">
+                            @for(p in c.rps){
+                                <a href="#" class="list-group-item sdetail-item" data-id="${p.solution}"  data-item="${p.id}">
+                                    <h4 class="list-group-item-heading">${p.name}</h4>
+                                    <p class="list-group-item-text">${p.solution}</p>
+                                </a>
+                            @}
+                        </div>
+                    @}
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(".slist").click(function(){
+        var dt = $(this).attr('data-id');
+        $('.sdetail').children('.list-group').hide();
+        $('.sdetail').children('[data-id="'+dt+'"]').show();
+    });
+    $(".sdetail-item").click(function(){
+        if($(this).hasClass('active')){
+            $(this).removeClass('active');
+        }else{
+            $(this).addClass('active');
+        }
+        var slt='';
+        var project = new Array();
+        $('.sgdetail').children('.active').each(function(){
+            var dt = $(this).attr('data-id');
+            project.push($(this).attr('data-item'));
+            var pname = $(this).children('.list-group-item-heading').text();
+            var psolution = $(this).children('.list-group-item-text').text();
+            var dtns = pname+" : "+psolution;
+            slt =slt + dtns+'&#13;&#10;';
+        });
+        window.parent.document.getElementById('evaluation').innerHTML=slt;
+        window.parent.document.getElementById('project').value=project.join(',');
+    });
+</script>
+@}

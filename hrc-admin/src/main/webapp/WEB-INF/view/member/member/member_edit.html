@@ -1,0 +1,139 @@
+@layout("/common/_container.html"){
+<script src="${ctxPath}/static/js/plugins/suggest/bootstrap-suggest.min.js"></script>
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <input type="hidden" id="id" value="${item.id}">
+            <input type="hidden" id="genderValue" value="${item.gender}">
+            <input type="hidden" id="bloodTypeValue" value="${item.bloodType}">
+            <input type="hidden" id="maritalStatusValue" value="${item.maritalStatus}">
+            <input type="hidden" id="haveChildrenValue" value="${item.haveChildren}">
+            <input type="hidden" id="preferredNursingTimeValue" value="${item.preferredNursingTime}">
+            <input type="hidden" id="alcoholAllergyValue" value="${item.alcoholAllergy}">
+            <input type="hidden" id="clinic" value="${item.clinic}">
+            <input type="hidden" id="introducer" value="${item.introducer}">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                            <#input id="realName" name="真实姓名" value="${item.realName}" underline="true"/>
+                            <#select id="gender" name="性别" underline="true">
+                            @for(dict in genderDict){
+                            <option value="${dict.num}">${dict.name}</option>
+                            @}
+                            </#select>
+                            <#input id="idCard" name="身份证号" value="${item.idCard}" underline="true"/>
+                            <#input id="phone" name="手机号码" value="${item.phone}" underline="true"/>
+                            <#avatar id="avatar" name="头像" underline="true" avatarImg="${item.avatar}"/>
+                            <#input id="wechat" name="微信" value="${item.wechat}" underline="true"/>
+                            <#avatar id="wechatQRCode" name="微信二维码" avatarImg="${item.wechatQRCode}" underline="true"/>
+                            <#input id="nickname" name="昵称" value="${item.nickname}" underline="true"/>
+                            <#input id="birthday" name="生日" value="${item.birthday}" underline="true"
+                            clickFun="laydate({istime: false, format: 'YYYY-MM-DD'})" />
+                            <#input id="height" name="身高(cm)" value="${item.height}" underline="true"/>
+                            <#input id="weight" name="体重(kg)" value="${item.weight}" underline="true"/>
+                            <#select id="bloodType" name="血型" underline="true">
+                            @for(dict in bloodTypeDict){
+                            <option value="${dict.num}">${dict.name}</option>
+                            @}
+                            </#select>
+                            <#input id="chestCircumference" name="胸围(cm)" value="${item.chestCircumference}" underline="true"/>
+                            <#input id="waistCircumference" name="腰围(cm)" value="${item.waistCircumference}" underline="true"/>
+                            <#input id="hipCircumference" name="臀围(cm)" value="${item.hipCircumference}" underline="true"/>
+                            <#input id="occupation" name="职业" value="${item.occupation}" underline="true"/>
+                            <#input id="email" name="邮箱" value="${item.email}" underline="true"/>
+                            <#input id="address" name="住址" value="${item.address}" underline="true"/>
+                            <#input id="mailingAddress" name="通讯地址" value="${item.mailingAddress}" underline="true"/>
+                            <#select id="maritalStatus" name="婚姻状况" underline="true">
+                            @for(dict in maritalStatusDict){
+                            <option value="${dict.num}">${dict.name}</option>
+                            @}
+                            </#select>
+                            <#select id="haveChildren" name="是否有孩子" underline="true">
+                            @for(dict in yesOrNoDict){
+                            <option value="${dict.num}">${dict.name}</option>
+                            @}
+                            </#select>
+                            <#input id="childrenGender" name="孩子性别" value="${item.childrenGender}" underline="true"/>
+                            <#input id="childrenBirthday" name="孩子生日" value="${item.childrenBirthday}" />
+
+                </div>
+
+                <div class="col-sm-6">
+                    <#input id="familyMember" name="家庭成员" value="${item.familyMember}" underline="true"/>
+                            <#input id="favoriteColors" name="喜欢颜色" value="${item.favoriteColors}" underline="true"/>
+                            <#input id="favoriteClothingStyle" name="喜欢的服装款式" value="${item.favoriteClothingStyle}" underline="true"/>
+                            <#input id="favoriteFood" name="喜欢水果" value="${item.favoriteFood}" underline="true"/>
+                            <#input id="favoriteDrinking" name="喜欢饮品" value="${item.favoriteDrinking}" underline="true"/>
+                            <#input id="favoriteMusic" name="喜欢音乐" value="${item.favoriteMusic}" underline="true"/>
+                            <#input id="hobby" name="其他爱好" value="${item.hobby}" underline="true"/>
+                            <#select id="preferredNursingTime" name="喜欢的护理时间" underline="true" >
+                            @for(dict in preferredNursingTimeDict){
+                            <option value="${dict.num}">${dict.name}</option>
+                            @}
+                            </#select>
+                            <#input id="preferredContactMethod" name="最佳联系方式" value="${item.preferredContactMethod}" underline="true"/>
+                            <#input id="preferredContactTime" name="最佳联系时间" value="${item.preferredContactTime}" underline="true"/>
+                            <#input id="customerServiceMemo" name="客户服务备注" value="${item.customerServiceMemo}" underline="true"/>
+                            <#input id="geneticDiseaseHistory" name="遗传病史" value="${item.geneticDiseaseHistory}" underline="true"/>
+                            <#input id="pastDiseaseHistory" name="过往病史" value="${item.pastDiseaseHistory}" underline="true"/>
+                            <#input id="pastTreatHistory" name="过往康护史" value="${item.pastTreatHistory}" underline="true"/>
+                            <#input id="pastMedicineHistory" name="过往药物史" value="${item.pastMedicineHistory}" underline="true"/>
+                            <#input id="drugAllergyHistory" name="药物过敏史" value="${item.drugAllergyHistory}" underline="true"/>
+                            <#select id="alcoholAllergy" name="酒精过敏" underline="true" >
+                            @for(dict in yesOrNoDict){
+                            <option value="${dict.num}">${dict.name}</option>
+                            @}
+                            </#select>
+                            <#input id="existingSymptom" name="现有症状" value="${item.existingSymptom}" underline="true"/>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">所属门店</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="clinicValue" value="${item.clinicName}"
+                                               @if(fixedDept==1){
+                                               readonly disabled >
+                                        @}else{
+                                        >
+                                        <div class="input-group-btn">
+                                            <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown">
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
+                                        </div>
+                                        @}
+                                        <!-- /btn-group -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">介绍人</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="introducerValue" value="${item.introducerName}">
+                                        <div class="input-group-btn">
+                                            <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown">
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
+                                        </div>
+                                        <!-- /btn-group -->
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="MemberInfoDlg.editSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="MemberInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/member/member/member_info.js"></script>
+@}

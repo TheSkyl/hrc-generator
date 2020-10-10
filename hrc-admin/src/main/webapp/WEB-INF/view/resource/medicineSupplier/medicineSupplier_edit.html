@@ -1,0 +1,44 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <input type="hidden" id="id" value="${item.id}">
+            <input type="hidden" id="categoryValue" value="${item.category}">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                    <#input id="name" name="供应商名称" value="${item.name}" underline="true"/>
+                    <#select id="category" name="供应商类别" underline="true">
+                        @for(dict in medicineSupplierCategories){
+                            <option value="${dict.num}">${dict.name}</option>
+                        @}
+                    </#select>
+                    <#input id="address" name="地址" value="${item.address}" underline="true"/>
+                    <#input id="phone" name="电话" value="${item.phone}" underline="true"/>
+                    <#input id="contact" name="联系人" value="${item.contact}" underline="true"/>
+                </div>
+
+                <div class="col-sm-6">
+                    <#input id="contactPhone" name="联系人手机号" value="${item.contactPhone}" underline="true" />
+                    <#input id="legalPerson" name="法人" value="${item.legalPerson}" underline="true"/>
+                    <#input id="businessLicense" name="公司执照" value="${item.businessLicense}" underline="true"/>
+                    <#input id="bank" name="开户行" value="${item.bank}" underline="true"/>
+                    <#input id="accountNumber" name="开户行卡号" value="${item.accountNumber}" underline="true"/>
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check"
+                    clickFun="MedicineSupplierInfoDlg.editSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser"
+                    clickFun="MedicineSupplierInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/resource/medicineSupplier/medicineSupplier_info.js"></script>
+@}

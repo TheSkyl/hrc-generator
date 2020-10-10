@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cebrains.hrc.common.persistence.dao.MemberMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cebrains.hrc.common.persistence.model.Member">
+        <id column="id" property="id" />
+        <result column="nickname" property="nickname" />
+        <result column="phone" property="phone" />
+        <result column="real_name" property="realName" />
+        <result column="gender" property="gender" />
+        <result column="wechat" property="wechat" />
+        <result column="wechat_qr_code" property="wechatQRCode" />
+        <result column="birthday" property="birthday" />
+        <result column="id_card" property="idCard" />
+        <result column="avatar" property="avatar" />
+        <result column="height" property="height" />
+        <result column="weight" property="weight" />
+        <result column="blood_type" property="bloodType" />
+        <result column="chest_circumference" property="chestCircumference" />
+        <result column="waist_circumference" property="waistCircumference" />
+        <result column="hip_circumference" property="hipCircumference" />
+        <result column="occupation" property="occupation" />
+        <result column="email" property="email" />
+        <result column="address" property="address" />
+        <result column="mailing_address" property="mailingAddress" />
+        <result column="marital_status" property="maritalStatus" />
+        <result column="have_children" property="haveChildren" />
+        <result column="children_gender" property="childrenGender" />
+        <result column="children_birthday" property="childrenBirthday" />
+        <result column="family_member" property="familyMember" />
+        <result column="favorite_colors" property="favoriteColors" />
+        <result column="favorite_clothing_style" property="favoriteClothingStyle" />
+        <result column="favorite_food" property="favoriteFood" />
+        <result column="favorite_drinking" property="favoriteDrinking" />
+        <result column="favorite_music" property="favoriteMusic" />
+        <result column="hobby" property="hobby" />
+        <result column="preferred_nursing_time" property="preferredNursingTime" />
+        <result column="preferred_contact_method" property="preferredContactMethod" />
+        <result column="preferred_contact_time" property="preferredContactTime" />
+        <result column="customer_service_memo" property="customerServiceMemo" />
+        <result column="genetic_disease_history" property="geneticDiseaseHistory" />
+        <result column="past_disease_history" property="pastDiseaseHistory" />
+        <result column="past_treat_history" property="pastTreatHistory" />
+        <result column="past_medicine_history" property="pastMedicineHistory" />
+        <result column="drug_allergy_history" property="drugAllergyHistory" />
+        <result column="alcohol_allergy" property="alcoholAllergy" />
+        <result column="existing_symptom" property="existingSymptom" />
+        <result column="clinic" property="clinic" />
+        <result column="introducer" property="introducer" />
+        <result column="created_by" property="createdBy" />
+        <result column="create_time" property="createTime" />
+        <result column="flag" property="flag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, nickname, phone, real_name AS realName, gender,wechat,wechat_qr_code AS wechatQRCode, birthday, id_card AS idCard, avatar, height, weight, blood_type AS bloodType, chest_circumference AS chestCircumference, waist_circumference AS waistCircumference, hip_circumference AS hipCircumference, occupation, email, address, mailing_address AS mailingAddress, marital_status AS maritalStatus, have_children AS haveChildren, children_gender AS childrenGender, children_birthday AS childrenBirthday, family_member AS familyMember, favorite_colors AS favoriteColors, favorite_clothing_style AS favoriteClothingStyle, favorite_food AS favoriteFood, favorite_drinking AS favoriteDrinking, favorite_music AS favoriteMusic, hobby, preferred_nursing_time AS preferredNursingTime, preferred_contact_method AS preferredContactMethod, preferred_contact_time AS preferredContactTime, customer_service_memo AS customerServiceMemo, genetic_disease_history AS geneticDiseaseHistory, past_disease_history AS pastDiseaseHistory, past_treat_history AS pastTreatHistory, past_medicine_history AS pastMedicineHistory, drug_allergy_history AS drugAllergyHistory, alcohol_allergy AS alcoholAllergy, existing_symptom AS existingSymptom, clinic, introducer, created_by AS createdBy, create_time AS createTime, flag
+    </sql>
+    <select id="findMemberNameByTreatmentId" parameterType="java.lang.Integer" resultType="java.lang.String">
+        SELECT m.real_name
+FROM treatment t
+	LEFT JOIN member m ON m.id = t.user_id
+WHERE t.id = #{tid}
+    </select>
+    <select id="getMemberByCard" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        SELECT *
+FROM member m
+	LEFT JOIN membership_card mc ON m.id = mc.user
+WHERE mc.id = #{card}
+    </select>
+
+</mapper>

@@ -1,0 +1,38 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <input type="hidden" id="id" value="${item.id}">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                            <#input id="id" name="" value="${item.id}" underline="true"/>
+                            <#input id="supplier" name="供应商" value="${item.supplier}" underline="true"/>
+                            <#input id="receiver" name="收货人" value="${item.receiver}" underline="true"/>
+                            <#input id="receiverPhone" name="收货人电话" value="${item.receiverPhone}" underline="true"/>
+                            <#input id="receiverAddress" name="收货人地址" value="${item.receiverAddress}" underline="true"/>
+                            <#input id="purchaseMemo" name="采购说明" value="${item.purchaseMemo}" />
+                </div>
+
+                <div class="col-sm-6">
+                            <#input id="remark" name="备注" value="${item.remark}" underline="true"/>
+                            <#input id="status" name="订单状态" value="${item.status}" underline="true"/>
+                            <#input id="createdTime" name="创建时间" value="${item.createdTime}" underline="true"/>
+                            <#input id="createdBy" name="创建人" value="${item.createdBy}" underline="true"/>
+                            <#input id="flag" name="" value="${item.flag}" />
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="OutsourceOrderInfoDlg.editSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="OutsourceOrderInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/outsource/outsourceOrder/outsourceOrder_info.js"></script>
+@}

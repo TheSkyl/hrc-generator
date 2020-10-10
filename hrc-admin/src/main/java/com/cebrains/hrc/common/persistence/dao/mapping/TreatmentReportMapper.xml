@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cebrains.hrc.common.persistence.dao.TreatmentReportMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cebrains.hrc.common.persistence.model.TreatmentReport">
+        <id column="id" property="id" />
+        <result column="member" property="member" />
+        <result column="project" property="project" />
+        <result column="summary" property="summary" />
+        <result column="product" property="product" />
+        <result column="consumable" property="consumable" />
+        <result column="amount" property="amount" />
+        <result column="create_time" property="createTime" />
+        <result column="department" property="department" />
+        <result column="created_by" property="createdBy" />
+        <result column="flag" property="flag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, member, project, summary, product, consumable, amount, create_time AS createTime, department, created_by AS createdBy, flag
+    </sql>
+
+</mapper>

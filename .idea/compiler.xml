@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="hrc-core" />
+        <module name="hrc-generator" />
+        <module name="hrc-rest" />
+        <module name="hrc-admin" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="hrc-admin" target="1.8" />
+      <module name="hrc-core" target="1.8" />
+      <module name="hrc-generator" target="1.8" />
+      <module name="hrc-parent" target="1.8" />
+      <module name="hrc-rest" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

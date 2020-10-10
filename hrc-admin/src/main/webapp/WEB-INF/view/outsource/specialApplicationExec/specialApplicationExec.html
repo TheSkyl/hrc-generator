@@ -1,0 +1,32 @@
+@layout("/common/_container.html"){
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>申请执行管理</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <#NameCon id="condition" name="名称" />
+                            </div>
+                            <div class="col-sm-3">
+                                <#button name="搜索" icon="fa-search" clickFun="SpecialApplicationExec.search()"/>
+                            </div>
+                        </div>
+                        <div class="hidden-xs" id="SpecialApplicationExecTableToolbar" role="group">
+                            @if(shiro.hasPermission("/specialApplicationExec/update")){
+                                <#button name="执行申请" icon="fa-plus" clickFun="SpecialApplicationExec.openSpecialApplicationExecDetail()" space="true"/>
+                            @}
+                        </div>
+                        <#table id="SpecialApplicationExecTable"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/outsource/specialApplicationExec/specialApplicationExec.js"></script>
+@}

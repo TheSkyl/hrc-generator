@@ -1,0 +1,4 @@
+# Project exclude paths
+/hrc-admin/target/
+/hrc-core/target/
+/hrc-generator/target/

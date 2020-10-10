@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cebrains.hrc.common.persistence.dao.AppointmentMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cebrains.hrc.common.persistence.model.Appointment">
+        <id column="id" property="id" />
+        <result column="member_id" property="memberId" />
+        <result column="project" property="project" />
+        <result column="type" property="type" />
+        <result column="start_time" property="startTime" />
+        <result column="duration" property="duration" />
+        <result column="end_time" property="endTime" />
+        <result column="department" property="department" />
+        <result column="technician" property="technician" />
+        <result column="memo" property="memo" />
+        <result column="status" property="status" />
+        <result column="created" property="created" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, member_id AS memberId, project, type, start_time AS startTime,duration, end_time AS endTime, department, technician, memo,status, created, create_time AS createTime
+    </sql>
+
+    <select id="findProjectNames" parameterType="java.lang.Integer" resultType="java.lang.String">
+        SELECT p.name
+FROM project p
+WHERE find_in_set(p.id, (SELECT project
+                         FROM appointment
+                         WHERE id = #{pid}))
+    </select>
+
+</mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cebrains.hrc.common.persistence.dao.MembershipChargeLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cebrains.hrc.common.persistence.model.MembershipChargeLog">
+        <id column="id" property="id" />
+        <result column="card" property="card" />
+        <result column="amount" property="amount" />
+        <result column="department" property="department" />
+        <result column="created" property="created" />
+        <result column="create_time" property="createTime" />
+        <result column="flag" property="flag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, card, amount, department, created, create_time AS createTime, given_amount AS givenAmount, memo, flag
+    </sql>
+
+</mapper>

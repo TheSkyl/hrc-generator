@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cebrains.hrc.common.persistence.dao.DeviceMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cebrains.hrc.common.persistence.model.Device">
+        <id column="id" property="id" />
+        <result column="device_number" property="deviceNumber" />
+        <result column="device_name" property="deviceName" />
+        <result column="price" property="price" />
+        <result column="amount" property="amount" />
+        <result column="status" property="status" />
+        <result column="purchase_time" property="purchaseTime" />
+        <result column="department" property="department" />
+        <result column="maintainer" property="maintainer" />
+        <result column="create_time" property="createTime" />
+        <result column="flag" property="flag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, device_number AS deviceNumber, device_name AS deviceName, price, amount, status, purchase_time AS purchaseTime, department, maintainer, create_time AS createTime, flag
+    </sql>
+
+</mapper>

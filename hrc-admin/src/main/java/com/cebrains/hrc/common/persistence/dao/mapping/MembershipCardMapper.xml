@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cebrains.hrc.common.persistence.dao.MembershipCardMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cebrains.hrc.common.persistence.model.MembershipCard">
+        <id column="id" property="id" />
+        <result column="number" property="number" />
+        <result column="balance" property="balance" />
+        <result column="user" property="user" />
+        <result column="level" property="level" />
+        <result column="project" property="project" />
+        <result column="discount" property="discount" />
+        <result column="due_date" property="dueDate" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, number, balance, user, level, project, discount, due_date AS dueDate, create_time AS createTime
+    </sql>
+
+    <select id="selectSuggestCardList" parameterType="java.lang.String" resultType="java.util.Map">
+SELECT
+  mc.id,
+  mc.number,
+  m.real_name name,
+  m.phone     mobile
+FROM membership_card mc
+  LEFT JOIN member m ON m.id = mc.user
+WHERE mc.number LIKE CONCAT('%',#{key},'%') OR m.real_name LIKE CONCAT('%',#{key},'%') OR m.phone LIKE CONCAT('%',#{key},'%')
+    </select>
+
+    <update id="deductMoneyByTreatment">
+UPDATE membership_card mc
+SET mc.balance = mc.balance - #{amount}
+WHERE mc.user = (SELECT t.user_id
+                 FROM treatment t
+                 WHERE t.id = #{tid})
+    </update>
+
+</mapper>

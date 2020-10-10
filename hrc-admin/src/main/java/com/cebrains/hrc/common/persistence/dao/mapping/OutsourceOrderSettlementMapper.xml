@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cebrains.hrc.common.persistence.dao.OutsourceOrderSettlementMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cebrains.hrc.common.persistence.model.OutsourceOrderSettlement">
+        <id column="id" property="id" />
+        <result column="outsource_order" property="outsourceOrder" />
+        <result column="amount" property="amount" />
+        <result column="pay_type" property="payType" />
+        <result column="pay_time" property="payTime" />
+        <result column="account_name" property="accountName" />
+        <result column="account_number" property="accountNumber" />
+        <result column="account_bank" property="accountBank" />
+        <result column="remark" property="remark" />
+        <result column="create_time" property="createTime" />
+        <result column="created_by" property="createdBy" />
+        <result column="flag" property="flag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, outsource_order AS outsourceOrder, amount, pay_type AS payType, pay_time AS payTime, account_name AS accountName, account_number AS accountNumber, account_bank AS accountBank, remark, create_time AS createTime, created_by AS createdBy, flag
+    </sql>
+
+</mapper>

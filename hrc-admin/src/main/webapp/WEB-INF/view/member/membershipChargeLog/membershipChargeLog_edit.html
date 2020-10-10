@@ -1,0 +1,34 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <input type="hidden" id="id" value="${item.id}">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                            <#input id="id" name="" value="${item.id}" underline="true"/>
+                            <#input id="card" name="会员卡" value="${item.card}" underline="true"/>
+                            <#input id="amount" name="充值金额" value="${item.amount}" underline="true"/>
+                            <#input id="department" name="所属门店" value="${item.department}" />
+                </div>
+
+                <div class="col-sm-6">
+                            <#input id="created" name="操作员" value="${item.created}" underline="true"/>
+                            <#input id="createTime" name="" value="${item.createTime}" underline="true"/>
+                            <#input id="flag" name="标记" value="${item.flag}" />
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="MembershipChargeLogInfoDlg.editSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="MembershipChargeLogInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/member/membershipChargeLog/membershipChargeLog_info.js"></script>
+@}

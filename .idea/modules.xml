@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/github.com.iml" filepath="$PROJECT_DIR$/.idea/github.com.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hrc-admin/hrc-admin.iml" filepath="$PROJECT_DIR$/hrc-admin/hrc-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hrc-core/hrc-core.iml" filepath="$PROJECT_DIR$/hrc-core/hrc-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hrc-generator/hrc-generator.iml" filepath="$PROJECT_DIR$/hrc-generator/hrc-generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hrc-parent/hrc-parent.iml" filepath="$PROJECT_DIR$/hrc-parent/hrc-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hrc-rest/hrc-rest.iml" filepath="$PROJECT_DIR$/hrc-rest/hrc-rest.iml" />
+    </modules>
+  </component>
+</project>

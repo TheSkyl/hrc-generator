@@ -1,0 +1,66 @@
+@layout("/common/_container.html"){
+<script src="${ctxPath}/static/js/plugins/suggest/bootstrap-suggest.min.js"></script>
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <input type="hidden" id="id" value="${item.id}">
+            <input type="hidden" id="statusValue" value="${item.status}">
+            <input type="hidden" id="department" value="${item.department}">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                            <#input id="deviceNumber" name="设备编号" value="${item.deviceNumber}" underline="true"/>
+                            <#input id="deviceName" name="设备名称" value="${item.deviceName}" underline="true"/>
+                            <#input id="price" name="设备单价" value="${item.price}" underline="true"/>
+                            <#input id="amount" name="设备数量" value="${item.amount}"/>
+                </div>
+
+                <div class="col-sm-6">
+                            <#select id="status" name="设备状态" underline="true">
+                            @for(dict in deviceStatusDict){
+                            <option value="${dict.num}">${dict.name}</option>
+                            @}
+                            </#select>
+                            <#input id="purchaseTime" name="采购日期" value="${item.purchaseTime}" underline="true" clickFun="laydate({istime: false, format: 'YYYY-MM-DD'})"/>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">所属门店</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="departmentValue" value="${item.departmentName}"
+                                   @if(tool.isNotEmpty(departmentId)){
+                                   readonly disabled >
+                            @}else{
+                            >
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown">
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
+                            </div>
+                            @}
+                            <!-- /btn-group -->
+                        </div>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <#select id="maintainer" name="维护人" value="${item.maintainer}">
+                @for(p in users){
+                <option value="${p.id}">${p.name}</option>
+                @}
+            </#select>
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="DeviceInfoDlg.editSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="DeviceInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/goods/device/device_info.js"></script>
+@}

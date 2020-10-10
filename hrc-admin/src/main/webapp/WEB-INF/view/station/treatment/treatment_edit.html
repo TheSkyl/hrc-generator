@@ -1,0 +1,133 @@
+@layout("/common/_container.html"){
+<link href="${ctxPath}/static/css/plugins/chosen/chosen.css" rel="stylesheet">
+<script src="${ctxPath}/static/js/plugins/suggest/bootstrap-suggest.min.js"></script>
+<script src="${ctxPath}/static/js/plugins/chosen/chosen.jquery.js"></script>
+<style type="text/css">
+    .btn-add-consumable{
+        padding: 1px 6px; margin-top: 5px; margin-left: 15px;
+    }
+    .consumableAmount{
+        margin-left: 5px;
+    }
+    #consumablePane{
+        margin-left: 25px;
+    }
+    .delete-consumable{
+        float:left;
+        margin-left: 10px;
+        padding: 5px 12px;
+    }
+</style>
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+            <input type="hidden" id="id" value="${item.id}">
+            <input type="hidden" id="department" value="${item.department}">
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">康护用户</label>
+                        <div class="col-sm-9">
+                            ${item.userName}
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">康护门店</label>
+                        <div class="col-sm-9">
+                            ${item.departmentName}
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">康护技师</label>
+                        <div class="col-sm-9">
+                            ${item.technicianName}
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+
+                    @if(item.status==0||item.status==1){
+                        <!--<#select id="projects" name="康护项目" underline="true">
+                        @for(p in projects){
+                        <option value="${p.id}">${p.name}</option>
+                        @}
+                        </#select>-->
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">康护项目</label>
+                        <div class="col-sm-9">
+                            ${projectNames}
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">使用耗材</label>
+                            <#button btnCss="info btn-add-consumable" name="添加耗材" id="addConsumable" icon="fa-plus" clickFun="TreatmentInfoDlg.addConsumable()" />
+                            <div id="consumablePane">
+
+                            </div>
+                            <!--<div class="hr-line-dashed"></div>-->
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label class="col-sm-3 control-label">康护过程描述</label><br/><br/>
+                        <textarea id="processDescription" name="processDescription" class="form-control" rows="5"></textarea>
+                        <div class="hr-line-dashed"></div>
+                        <label class="col-sm-3 control-label">康护结果描述</label><br/><br/>
+                        <textarea id="resultDescription" name="resultDescription" class="form-control" rows="5"></textarea>
+                        <!--<div class="hr-line-dashed"></div>-->
+                    </div>
+                    </div>
+                    <div class="row btn-group-m-t">
+                        <div class="col-sm-10">
+                            <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="TreatmentInfoDlg.editSubmit()"/>
+                            <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="TreatmentInfoDlg.close()"/>
+                        </div>
+                    </div><br/>
+                    <p style="color:red;">*注: 康护记录添加之后将不能修改, 请仔细检查!</p>
+                    @}else {
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">康护项目</label>
+                            <div class="col-sm-9">
+                                ${projectNames}
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">使用耗材</label><br/>
+                            <div style="margin: 20px 35px; border-radius: 2px; border: 1px solid #EEE; padding: 5px 15px;">
+                                <table class="table table-striped">
+                                    <thead><tr><th>耗材名称</th><th>使用数量</th></tr></thead>
+                                    <tbody>
+                                    @if(usedConsumable.~size==0){
+                                    <tr><td colspan="2" align="center">暂无耗材使用记录</td></tr>
+                                    @}
+                                    @for(p in usedConsumable){
+                                    <td>${p.name}</td><td>${p.amount}</td>
+                                    @}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!--<div class="hr-line-dashed"></div>-->
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label class="col-sm-3 control-label">康护过程描述</label><br/><br/>
+                        ${item.processDescription}
+                        <div class="hr-line-dashed"></div>
+                        <label class="col-sm-3 control-label">康护结果描述</label><br/><br/>
+                        ${item.resultDescription}
+                    </div>
+                </div>
+                    @}
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/station/treatment/treatment_info.js"></script>
+@}
+

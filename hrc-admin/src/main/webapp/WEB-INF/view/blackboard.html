@@ -1,0 +1,32 @@
+@layout("/common/_container.html"){
+<style type="text/css">
+	html
+	{
+		height:100%;
+		margin:0;
+	}
+	body
+	{
+		height:100%;
+		margin:0;
+		background: #28b7bc !important;
+	}
+	body div.wrapper{
+		height:100%;
+	}
+</style>
+<div class="container-fluid" style="height:100%; z-index:1;text-align:center;padding: 0 !important;">
+	<div class="row" style="display:none;">
+		<div class="col-sm-12">
+			@for(notice in noticeList){
+				<div class="alert alert-success alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+					${notice.content}
+				</div>
+			@}
+		</div>
+	</div>
+	<center><img src="${ctxPath}/static/img/hymark2.png" width="100%" border="0"/></center>
+</div>
+
+@}

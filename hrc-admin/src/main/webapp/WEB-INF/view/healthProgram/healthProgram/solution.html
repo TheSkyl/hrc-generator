@@ -1,0 +1,573 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit"><!-- 让360浏览器默认选择webkit内核 -->
+
+    <!-- 全局css -->
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    <link href="/static/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/static/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="/static/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="/static/css/plugins/validate/bootstrapValidator.min.css" rel="stylesheet">
+    <link href="/static/css/animate.css" rel="stylesheet">
+    <link href="/static/css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="/static/css/_fstyle.css" rel="stylesheet">
+    <link href="/static/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="/static/css/plugins/webuploader/webuploader.css" rel="stylesheet">
+    <link href="/static/css/plugins/ztree/zTreeStyle.css" rel="stylesheet">
+    <link href="/static/css/plugins/jquery-treegrid/css/jquery.treegrid.css" rel="stylesheet">
+    <!-- <link href="/static/css/plugins/ztree/demo.css" rel="stylesheet"> -->
+
+    <!-- 全局js -->
+    <script src="/static/js/jquery.min.js?v=2.1.4"></script>
+    <script src="/static/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="/static/js/plugins/ztree/jquery.ztree.all.min.js"></script>
+    <script src="/static/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="/static/js/plugins/validate/bootstrapValidator.min.js"></script>
+    <script src="/static/js/plugins/validate/zh_CN.js"></script>
+    <script src="/static/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+    <script src="/static/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="/static/js/plugins/jquery-treegrid/js/jquery.treegrid.min.js"></script>
+    <script src="/static/js/plugins/jquery-treegrid/js/jquery.treegrid.bootstrap3.js"></script>
+    <script src="/static/js/plugins/jquery-treegrid/extension/jquery.treegrid.extension.js"></script>
+    <script src="/static/js/plugins/layer/layer.min.js"></script><link rel="stylesheet" href="http://ttjk.hanyigongshe.com/static/js/plugins/layer/theme/default/layer.css?v=3.1.0" id="layuicss-layer">
+    <script src="/static/js/plugins/iCheck/icheck.min.js"></script>
+    <script src="/static/js/plugins/layer/laydate/laydate.js"></script><link type="text/css" rel="stylesheet" href="http://ttjk.hanyigongshe.com/static/js/plugins/layer/laydate/need/laydate.css"><link type="text/css" rel="stylesheet" href="http://ttjk.hanyigongshe.com/static/js/plugins/layer/laydate/skins/default/laydate.css" id="LayDateSkin">
+    <script src="/static/js/plugins/webuploader/webuploader.min.js"></script>
+    <script src="/static/js/common/ajax-object.js"></script>
+    <script src="/static/js/common/bootstrap-table-object.js"></script>
+    <script src="/static/js/common/tree-table-object.js"></script>
+    <script src="/static/js/common/web-upload-object.js"></script>
+    <script src="/static/js/common/ztree-object.js"></script>
+    <script src="/static/js/common/Feng.js"></script>
+
+
+    <script type="text/javascript">
+        Feng.addCtx("");
+        Feng.sessionTimeoutRegistry();
+    </script>
+</head>
+
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <style>
+        body{
+            background:white !important;
+        }
+        .col-sm-3{
+            padding-right:0px !important;
+        }
+        .col-sm-9{
+            padding-left:0px !important;
+        }
+        .list-group-item {
+            border-radius: 0px !important;
+        }
+    </style>
+    <div class="ibox float-e-margins">
+        <div class="ibox-content">
+            <div class="form-horizontal">
+                <div>
+                    <div class="col-sm-3">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item slist" data-id="皮肤健康" "="">
+                            <span class="glyphicon glyphicon-file"></span> 皮肤健康
+                            </a>
+                            <a href="#" class="list-group-item slist" data-id="骨伤健康" "="">
+                            <span class="glyphicon glyphicon-file"></span> 骨伤健康
+                            </a>
+                            <a href="#" class="list-group-item slist" data-id="视力健康" "="">
+                            <span class="glyphicon glyphicon-file"></span> 视力健康
+                            </a>
+                            <a href="#" class="list-group-item slist" data-id="美容塑形健康" "="">
+                            <span class="glyphicon glyphicon-file"></span> 美容塑形健康
+                            </a>
+                            <a href="#" class="list-group-item slist" data-id="脾胃健康" "="">
+                            <span class="glyphicon glyphicon-file"></span> 脾胃健康
+                            </a>
+                            <a href="#" class="list-group-item slist" data-id="五官健康" "="">
+                            <span class="glyphicon glyphicon-file"></span> 五官健康
+                            </a>
+                            <a href="#" class="list-group-item slist" data-id="男女生殖健康" "="">
+                            <span class="glyphicon glyphicon-file"></span> 男女生殖健康
+                            </a>
+                            <a href="#" class="list-group-item slist" data-id="亚健康管理" "="">
+                            <span class="glyphicon glyphicon-file"></span> 亚健康管理
+                            </a>
+                            <a href="#" class="list-group-item slist" data-id="老慢病健康管理" "="">
+                            <span class="glyphicon glyphicon-file"></span> 老慢病健康管理
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-9 sdetail">
+                        <div class="list-group sgdetail" data-id="皮肤健康" style="">
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，症状部位皮肤卫士＋皮肤伴侣" data-item="1">
+                                <h4 class="list-group-item-heading">A皮肤过敏、瘙痒，皮肤湿疹、风疹、汗疱疹、多汗症、痒疹</h4>
+                                <p class="list-group-item-text">40分钟量子灸，症状部位皮肤卫士＋皮肤伴侣</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，症状部位皮肤卫士＋皮肤伴侣" data-item="2">
+                                <h4 class="list-group-item-heading">A脚气、灰指甲、皮癣股癣、头癣、毛囊炎、脂溢性皮炎、疱疹、蚊虫叮咬</h4>
+                                <p class="list-group-item-text">40分钟量子灸，症状部位皮肤卫士＋皮肤伴侣</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，症状部位皮肤卫士＋皮肤伴侣" data-item="3">
+                                <h4 class="list-group-item-heading">B外阴湿疹、瘙痒、肛痒</h4>
+                                <p class="list-group-item-text">40分钟量子灸，症状部位皮肤卫士＋皮肤伴侣</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="症状部位幸肤肽" data-item="4">
+                                <h4 class="list-group-item-heading">B烧烫伤、晒伤、冻伤、高原红、糖足、褥疮、皮肤囊肿、脓毒症、伤口不愈合、皮肤溃烂</h4>
+                                <p class="list-group-item-text">症状部位幸肤肽</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，症状部位皮肤卫士，复阳酒10-15ml／天" data-item="5">
+                                <h4 class="list-group-item-heading">B过敏性紫癜</h4>
+                                <p class="list-group-item-text">40分钟量子灸，症状部位皮肤卫士，复阳酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，症状部位幸肤肽" data-item="6">
+                                <h4 class="list-group-item-heading">C带状疱疹</h4>
+                                <p class="list-group-item-text">40分钟量子灸，症状部位幸肤肽</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，症状部位皮肤卫士＋皮肤伴侣" data-item="7">
+                                <h4 class="list-group-item-heading">C神经性皮炎</h4>
+                                <p class="list-group-item-text">40分钟量子灸，症状部位皮肤卫士＋皮肤伴侣</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，症状部位皮肤卫士＋皮肤伴侣" data-item="8">
+                                <h4 class="list-group-item-heading">C牛皮癣、鱼鳞病、寻麻疹</h4>
+                                <p class="list-group-item-text">40分钟量子灸，症状部位皮肤卫士＋皮肤伴侣</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，症状部位幸肤肽＋皮肤伴侣" data-item="9">
+                                <h4 class="list-group-item-heading">C白癜风</h4>
+                                <p class="list-group-item-text">40分钟量子灸，症状部位幸肤肽＋皮肤伴侣</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，症状部位幸肤肽" data-item="10">
+                                <h4 class="list-group-item-heading">C脂溢性脱发、斑秃</h4>
+                                <p class="list-group-item-text">40分钟量子灸，症状部位幸肤肽</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，症状部位健将卫士" data-item="11">
+                                <h4 class="list-group-item-heading">C脂肪瘤、血管瘤</h4>
+                                <p class="list-group-item-text">40分钟量子灸，症状部位健将卫士</p>
+                            </a>
+                        </div>
+                        <div class="list-group sgdetail" data-id="骨伤健康" style="display:none;">
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，症状部位健将卫士，口服复阳酒10－15ml／天" data-item="12">
+                                <h4 class="list-group-item-heading">A网球肘、跌打损伤、肌肉损伤劳损、运动损伤劳损</h4>
+                                <p class="list-group-item-text">40分钟量子灸，症状部位健将卫士，口服复阳酒10－15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，症状部位健将卫士，口服复阳酒10－15ml／天" data-item="13">
+                                <h4 class="list-group-item-heading">B骨关节炎症、肩周炎、腱鞘炎、腱鞘囊肿</h4>
+                                <p class="list-group-item-text">40分钟量子灸，症状部位健将卫士，口服复阳酒10－15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，症状部位健将卫士，口服复阳酒10－15ml／天" data-item="14">
+                                <h4 class="list-group-item-heading">B脊柱炎症、颈椎病、腰椎盘突出</h4>
+                                <p class="list-group-item-text">40分钟量子灸，症状部位健将卫士，口服复阳酒10－15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，口服复阳酒10－15ml／天" data-item="15">
+                                <h4 class="list-group-item-heading">B中青年预防骨质疏松、膝关节骨性关节炎、膝关节损伤</h4>
+                                <p class="list-group-item-text">40分钟量子灸，口服复阳酒10－15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，症状部位健将卫士，口服复阳酒10－15ml／天" data-item="16">
+                                <h4 class="list-group-item-heading">C富贵包、背重、骨质增生</h4>
+                                <p class="list-group-item-text">40分钟量子灸，症状部位健将卫士，口服复阳酒10－15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，症状部位健将卫士，口服复阳酒10－15ml／天" data-item="17">
+                                <h4 class="list-group-item-heading">C滑膜炎</h4>
+                                <p class="list-group-item-text">40分钟量子灸，症状部位健将卫士，口服复阳酒10－15ml／天</p>
+                            </a>
+                        </div>
+                        <div class="list-group sgdetail" data-id="视力健康" style="display:none;">
+                            <a href="#" class="list-group-item sdetail-item" data-id="眼部贵口" data-item="18">
+                                <h4 class="list-group-item-heading">A眼睛各种炎症、虹膜炎、沙眼、红眼病、眼结膜出血、眼部炎症溃烂、角膜炎、结膜炎</h4>
+                                <p class="list-group-item-text">眼部贵口</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，眼部贵口" data-item="19">
+                                <h4 class="list-group-item-heading">A干涩、流泪、畏光、干眼症</h4>
+                                <p class="list-group-item-text">40分钟量子灸，眼部贵口</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，眼部贵口" data-item="20">
+                                <h4 class="list-group-item-heading">A老花眼</h4>
+                                <p class="list-group-item-text">40分钟量子灸，眼部贵口</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，眼部贵口" data-item="21">
+                                <h4 class="list-group-item-heading">A近视眼</h4>
+                                <p class="list-group-item-text">40分钟量子灸，眼部贵口</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，眼部贵口" data-item="22">
+                                <h4 class="list-group-item-heading">B青光眼、飞蚊症、白内障、蓝光眼</h4>
+                                <p class="list-group-item-text">40分钟量子灸，眼部贵口</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸＋眼部贵口（雾化10-15分钟）" data-item="23">
+                                <h4 class="list-group-item-heading">C黄斑病变、视网膜病变</h4>
+                                <p class="list-group-item-text">40分钟量子灸＋眼部贵口（雾化10-15分钟）</p>
+                            </a>
+                        </div>
+                        <div class="list-group sgdetail" data-id="美容塑形健康" style="display:none;">
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，脸部、颈部幸肤肽" data-item="24">
+                                <h4 class="list-group-item-heading">B面部紧致、颈部紧致，祛纹、大眼袋、肿眼泡、脂肪粒、红血丝、高原红</h4>
+                                <p class="list-group-item-text">40分钟量子灸，脸部、颈部幸肤肽</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，脸部幸肤肽" data-item="25">
+                                <h4 class="list-group-item-heading">B面部美白、毛孔粗大、干涩暗淡、黑头</h4>
+                                <p class="list-group-item-text">40分钟量子灸，脸部幸肤肽</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，脸部幸肤肽、本草：祛痘茶" data-item="26">
+                                <h4 class="list-group-item-heading">C面部祛痘、青春痘、痤疮</h4>
+                                <p class="list-group-item-text">40分钟量子灸，脸部幸肤肽、本草：祛痘茶</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，脸部幸肤肽" data-item="27">
+                                <h4 class="list-group-item-heading">C面部炎症过敏、激素脸</h4>
+                                <p class="list-group-item-text">40分钟量子灸，脸部幸肤肽</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，脸部幸肤肽，早复阳酒、晚滋阴酒10－15ml／天" data-item="28">
+                                <h4 class="list-group-item-heading">C面部祛斑（黄褐斑、蝴蝶斑、妊娠斑、晒斑）</h4>
+                                <p class="list-group-item-text">40分钟量子灸，脸部幸肤肽，早复阳酒、晚滋阴酒10－15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id=" 40分钟量子灸，症状部位幸肤肽" data-item="29">
+                                <h4 class="list-group-item-heading">C妊娠纹</h4>
+                                <p class="list-group-item-text"> 40分钟量子灸，症状部位幸肤肽</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="药浴，40分钟量子灸" data-item="30">
+                                <h4 class="list-group-item-heading">C香体</h4>
+                                <p class="list-group-item-text">药浴，40分钟量子灸</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，私部MM宝" data-item="31">
+                                <h4 class="list-group-item-heading">C女性私护（私部粉嫩、私部紧致、瘙痒异味）</h4>
+                                <p class="list-group-item-text">40分钟量子灸，私部MM宝</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，胸部幸肤肽" data-item="32">
+                                <h4 class="list-group-item-heading">C女性丰胸、丰乳、乳头粉嫩</h4>
+                                <p class="list-group-item-text">40分钟量子灸，胸部幸肤肽</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，臀部幸肤肽，瘦身百草茶" data-item="33">
+                                <h4 class="list-group-item-heading">C丰臀、美臀</h4>
+                                <p class="list-group-item-text">40分钟量子灸，臀部幸肤肽，瘦身百草茶</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，幸肤肽；瘦身百草茶" data-item="34">
+                                <h4 class="list-group-item-heading">C束腰、瘦腰（啤酒肚、水桶腰）</h4>
+                                <p class="list-group-item-text">40分钟量子灸，幸肤肽；瘦身百草茶</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，幸肤肽，瘦身百草茶" data-item="35">
+                                <h4 class="list-group-item-heading">C瘦腿（棒槌腿）、瘦手臂 </h4>
+                                <p class="list-group-item-text">40分钟量子灸，幸肤肽，瘦身百草茶</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，瘦身百草茶" data-item="36">
+                                <h4 class="list-group-item-heading">C肥胖症</h4>
+                                <p class="list-group-item-text">40分钟量子灸，瘦身百草茶</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，本草茶" data-item="37">
+                                <h4 class="list-group-item-heading">C厌食症、营养不良、各种维生素缺乏、贫血</h4>
+                                <p class="list-group-item-text">40分钟量子灸，本草茶</p>
+                            </a>
+                        </div>
+                        <div class="list-group sgdetail" data-id="脾胃健康" style="display:none;">
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸＋复阳酒10-15ml／天" data-item="38">
+                                <h4 class="list-group-item-heading">A胃肠炎、反流性食管炎、消化性溃疡、溃疡性结肠炎</h4>
+                                <p class="list-group-item-text">40分钟量子灸＋复阳酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，复阳酒10-15ml／天＋健脾祛寒百草茶" data-item="39">
+                                <h4 class="list-group-item-heading">B脾胃虚寒</h4>
+                                <p class="list-group-item-text">40分钟量子灸，复阳酒10-15ml／天＋健脾祛寒百草茶</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，复阳酒10-15ml／天，健脾祛热百草茶" data-item="40">
+                                <h4 class="list-group-item-heading">B脾胃湿热</h4>
+                                <p class="list-group-item-text">40分钟量子灸，复阳酒10-15ml／天，健脾祛热百草茶</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，复阳酒10-15ml／天，健脾清火百草茶" data-item="41">
+                                <h4 class="list-group-item-heading">B幽门螺旋杆菌</h4>
+                                <p class="list-group-item-text">40分钟量子灸，复阳酒10-15ml／天，健脾清火百草茶</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸＋健脾消食百草茶" data-item="42">
+                                <h4 class="list-group-item-heading">B儿童食欲不振</h4>
+                                <p class="list-group-item-text">40分钟量子灸＋健脾消食百草茶</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸＋健脾消食百草茶" data-item="43">
+                                <h4 class="list-group-item-heading">C便秘</h4>
+                                <p class="list-group-item-text">40分钟量子灸＋健脾消食百草茶</p>
+                            </a>
+                        </div>
+                        <div class="list-group sgdetail" data-id="五官健康" style="display:none;">
+                            <a href="#" class="list-group-item sdetail-item" data-id="贵口" data-item="44">
+                                <h4 class="list-group-item-heading">A鼻腔黏膜溃疡溃烂</h4>
+                                <p class="list-group-item-text">贵口</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="贵口＋皮肤伴侣" data-item="45">
+                                <h4 class="list-group-item-heading">A耳部炎症瘙痒、耳部溃烂</h4>
+                                <p class="list-group-item-text">贵口＋皮肤伴侣</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，症状部位贵口" data-item="46">
+                                <h4 class="list-group-item-heading">A口臭、口角炎、口唇病、黑毛舌、唇炎、牙痛、牙周炎、咽炎、喉囊肿</h4>
+                                <p class="list-group-item-text">40分钟量子灸，症状部位贵口</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，鼻腔贵口，早复阳酒、晚滋阴酒10-15ml／天" data-item="47">
+                                <h4 class="list-group-item-heading">B鼻炎、鼻窦炎、过敏性鼻炎</h4>
+                                <p class="list-group-item-text">40分钟量子灸，鼻腔贵口，早复阳酒、晚滋阴酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天" data-item="48">
+                                <h4 class="list-group-item-heading">B耳鸣</h4>
+                                <p class="list-group-item-text">40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸＋鼻腔贵口早复阳酒、晚滋阴酒10-15ml／天" data-item="49">
+                                <h4 class="list-group-item-heading">C空鼻症</h4>
+                                <p class="list-group-item-text">40分钟量子灸＋鼻腔贵口早复阳酒、晚滋阴酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，贵口，早复阳酒、晚滋阴酒10-15ml／天" data-item="50">
+                                <h4 class="list-group-item-heading">C反复口腔溃疡</h4>
+                                <p class="list-group-item-text">40分钟量子灸，贵口，早复阳酒、晚滋阴酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，口鼻贵口雾化" data-item="51">
+                                <h4 class="list-group-item-heading">C感冒</h4>
+                                <p class="list-group-item-text">40分钟量子灸，口鼻贵口雾化</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸＋口鼻贵口雾化" data-item="52">
+                                <h4 class="list-group-item-heading">C肺炎、肺气肿</h4>
+                                <p class="list-group-item-text">40分钟量子灸＋口鼻贵口雾化</p>
+                            </a>
+                        </div>
+                        <div class="list-group sgdetail" data-id="男女生殖健康" style="display:none;">
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，私部MM宝，早复阳酒、晚滋阴酒10-15ml／天" data-item="53">
+                                <h4 class="list-group-item-heading">A女性阴道炎、宫颈炎、盆腔炎、瘙痒异味、白带异常</h4>
+                                <p class="list-group-item-text">40分钟量子灸，私部MM宝，早复阳酒、晚滋阴酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，症状部位MM宝，口服续断复阳酒10-15ml／天" data-item="54">
+                                <h4 class="list-group-item-heading">B女性乳腺炎、乳腺增生、乳腺肿块（乳腺纤维瘤）、乳腺结节</h4>
+                                <p class="list-group-item-text">40分钟量子灸，症状部位MM宝，口服续断复阳酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，私部GG宝、口服续断复阳酒10-15ml／天" data-item="55">
+                                <h4 class="list-group-item-heading">B男性私部瘙痒异味、炎症、溃烂</h4>
+                                <p class="list-group-item-text">40分钟量子灸，私部GG宝、口服续断复阳酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，阴道MM宝，口服续断复阳酒10-15ml／天" data-item="56">
+                                <h4 class="list-group-item-heading">B宫颈糜烂、宫颈息肉、宫颈白斑、宫颈囊肿、宫颈肥大</h4>
+                                <p class="list-group-item-text">40分钟量子灸，阴道MM宝，口服续断复阳酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，阴道MM宝，口服续断复阳酒10-15ml／天" data-item="57">
+                                <h4 class="list-group-item-heading">B女性卵巢囊肿、卵巢修复</h4>
+                                <p class="list-group-item-text">40分钟量子灸，阴道MM宝，口服续断复阳酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，阴道MM宝，口服续断复阳酒10-15ml／天" data-item="58">
+                                <h4 class="list-group-item-heading">C女性子宫肌瘤</h4>
+                                <p class="list-group-item-text">40分钟量子灸，阴道MM宝，口服续断复阳酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，阴道MM宝，口服蜀椒复阳酒10-15ml／天" data-item="59">
+                                <h4 class="list-group-item-heading">C女性不孕不育</h4>
+                                <p class="list-group-item-text">40分钟量子灸，阴道MM宝，口服蜀椒复阳酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸＋阴道MM宝＋口服复阳酒＋续断10-15ml／天" data-item="60">
+                                <h4 class="list-group-item-heading">C女性宫寒、痛经、闭经</h4>
+                                <p class="list-group-item-text">40分钟量子灸＋阴道MM宝＋口服复阳酒＋续断10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，口服蜀椒、肉苁蓉复阳酒10-15ml／天" data-item="61">
+                                <h4 class="list-group-item-heading">C女性更年期抑郁症、性冷淡</h4>
+                                <p class="list-group-item-text">40分钟量子灸，口服蜀椒、肉苁蓉复阳酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，口服肾四味、马草丹复阳酒10-15ml／天" data-item="62">
+                                <h4 class="list-group-item-heading">C男性不育、阳痿 、早泄、遗精</h4>
+                                <p class="list-group-item-text">40分钟量子灸，口服肾四味、马草丹复阳酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，症状部位GG宝，口服续断复阳酒10-15ml／天" data-item="63">
+                                <h4 class="list-group-item-heading">C男性前列腺增生、前列腺囊肿 、慢性膀胱炎</h4>
+                                <p class="list-group-item-text">40分钟量子灸，症状部位GG宝，口服续断复阳酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，症状部位GG宝" data-item="64">
+                                <h4 class="list-group-item-heading">C男性私部疱疹红斑、阴囊潮湿、阴囊瘙痒、淋病、尖锐湿疣、梅毒</h4>
+                                <p class="list-group-item-text">40分钟量子灸，症状部位GG宝</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，口服续断复阳酒10-15ml／天" data-item="65">
+                                <h4 class="list-group-item-heading">C蛋白尿、尿毒症</h4>
+                                <p class="list-group-item-text">40分钟量子灸，口服续断复阳酒10-15ml／天</p>
+                            </a>
+                        </div>
+                        <div class="list-group sgdetail" data-id="亚健康管理" style="display:none;">
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸；酒：早复阳酒、晚滋阴酒10-15ml／天" data-item="66">
+                                <h4 class="list-group-item-heading">C全身不适、疼痛</h4>
+                                <p class="list-group-item-text">40分钟量子灸；酒：早复阳酒、晚滋阴酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天" data-item="67">
+                                <h4 class="list-group-item-heading">C心理焦虑、烦躁</h4>
+                                <p class="list-group-item-text">40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天" data-item="68">
+                                <h4 class="list-group-item-heading">C厌食症</h4>
+                                <p class="list-group-item-text">40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天" data-item="69">
+                                <h4 class="list-group-item-heading">C精神萎靡不振、疲劳</h4>
+                                <p class="list-group-item-text">40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天" data-item="70">
+                                <h4 class="list-group-item-heading">C免疫力低下（早衰、健忘、反复感冒、反复口腔溃疡、低热）</h4>
+                                <p class="list-group-item-text">40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，干姜复阳酒10-15ml／天" data-item="71">
+                                <h4 class="list-group-item-heading">C空调病</h4>
+                                <p class="list-group-item-text">40分钟量子灸，干姜复阳酒10-15ml／天</p>
+                            </a>
+                        </div>
+                        <div class="list-group sgdetail" data-id="老慢病健康管理" style="display:none;">
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，复阳酒10-15ml／天" data-item="72">
+                                <h4 class="list-group-item-heading">C高血脂</h4>
+                                <p class="list-group-item-text">40分钟量子灸，复阳酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，复阳酒10-15ml／天" data-item="73">
+                                <h4 class="list-group-item-heading">C高血压</h4>
+                                <p class="list-group-item-text">40分钟量子灸，复阳酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天" data-item="74">
+                                <h4 class="list-group-item-heading">C高血糖</h4>
+                                <p class="list-group-item-text">40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，复阳酒10-15ml／天" data-item="75">
+                                <h4 class="list-group-item-heading">C高肥胖</h4>
+                                <p class="list-group-item-text">40分钟量子灸，复阳酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，复阳酒10-15ml／天" data-item="76">
+                                <h4 class="list-group-item-heading">C高尿酸</h4>
+                                <p class="list-group-item-text">40分钟量子灸，复阳酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，复阳酒10-15ml／天" data-item="77">
+                                <h4 class="list-group-item-heading">C高同型半胱氨酸血症</h4>
+                                <p class="list-group-item-text">40分钟量子灸，复阳酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，复阳酒10-15ml／天" data-item="78">
+                                <h4 class="list-group-item-heading">C更年期抑郁症</h4>
+                                <p class="list-group-item-text">40分钟量子灸，复阳酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，复阳酒10-15ml／天" data-item="79">
+                                <h4 class="list-group-item-heading">C中青年抑郁症</h4>
+                                <p class="list-group-item-text">40分钟量子灸，复阳酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天" data-item="80">
+                                <h4 class="list-group-item-heading">C慢性疲劳综合症</h4>
+                                <p class="list-group-item-text">40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天" data-item="81">
+                                <h4 class="list-group-item-heading">C深度失眠</h4>
+                                <p class="list-group-item-text">40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天" data-item="82">
+                                <h4 class="list-group-item-heading">C深度静脉曲张</h4>
+                                <p class="list-group-item-text">40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，复阳酒10-15ml／天" data-item="83">
+                                <h4 class="list-group-item-heading">C动脉硬化</h4>
+                                <p class="list-group-item-text">40分钟量子灸，复阳酒10-15ml／天</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，健心百草茶" data-item="84">
+                                <h4 class="list-group-item-heading">C心脏不适</h4>
+                                <p class="list-group-item-text">40分钟量子灸，健心百草茶</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，本草" data-item="85">
+                                <h4 class="list-group-item-heading">C糖尿病</h4>
+                                <p class="list-group-item-text">40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，本草</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，本草" data-item="86">
+                                <h4 class="list-group-item-heading">C老年骨质疏松</h4>
+                                <p class="list-group-item-text">40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，本草</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，本草" data-item="87">
+                                <h4 class="list-group-item-heading">C老年痴呆</h4>
+                                <p class="list-group-item-text">40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，本草</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，药茶" data-item="88">
+                                <h4 class="list-group-item-heading">C抗生素后遗症</h4>
+                                <p class="list-group-item-text">40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，药茶</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，药茶" data-item="89">
+                                <h4 class="list-group-item-heading">肿瘤</h4>
+                                <p class="list-group-item-text">40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，药茶</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，口腔贵口雾化，早复阳酒、晚滋阴酒10-15ml／天，药茶" data-item="90">
+                                <h4 class="list-group-item-heading">C肺癌</h4>
+                                <p class="list-group-item-text">40分钟量子灸，口腔贵口雾化，早复阳酒、晚滋阴酒10-15ml／天，药茶</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，口腔贵口雾化，早复阳酒、晚滋阴酒10-15ml／天，药茶" data-item="91">
+                                <h4 class="list-group-item-heading">C鼻咽癌</h4>
+                                <p class="list-group-item-text">40分钟量子灸，口腔贵口雾化，早复阳酒、晚滋阴酒10-15ml／天，药茶</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，药茶" data-item="92">
+                                <h4 class="list-group-item-heading">C肝癌</h4>
+                                <p class="list-group-item-text">40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，药茶</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，药茶" data-item="93">
+                                <h4 class="list-group-item-heading">C淋巴癌</h4>
+                                <p class="list-group-item-text">40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，药茶</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，药茶" data-item="94">
+                                <h4 class="list-group-item-heading">C胰腺癌</h4>
+                                <p class="list-group-item-text">40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，药茶</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，药茶" data-item="95">
+                                <h4 class="list-group-item-heading">C胃肠癌</h4>
+                                <p class="list-group-item-text">40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，药茶</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，药茶" data-item="96">
+                                <h4 class="list-group-item-heading">C口腔癌</h4>
+                                <p class="list-group-item-text">40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，药茶</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，药茶" data-item="97">
+                                <h4 class="list-group-item-heading">C喉癌</h4>
+                                <p class="list-group-item-text">40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，药茶</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，药茶" data-item="98">
+                                <h4 class="list-group-item-heading">C白血病</h4>
+                                <p class="list-group-item-text">40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，药茶</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，药茶" data-item="99">
+                                <h4 class="list-group-item-heading">C子宫癌</h4>
+                                <p class="list-group-item-text">40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，药茶</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，药茶" data-item="100">
+                                <h4 class="list-group-item-heading">C骨癌</h4>
+                                <p class="list-group-item-text">40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，药茶</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，药茶" data-item="101">
+                                <h4 class="list-group-item-heading">C红斑狼疮</h4>
+                                <p class="list-group-item-text">40分钟量子灸，早复阳酒、晚滋阴酒10-15ml／天，药茶</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，症状部位健将卫士，早复阳酒、晚滋阴酒10－15ml／天，本草：百草丹（早晚各一粒）" data-item="102">
+                                <h4 class="list-group-item-heading">C强直性脊柱炎、脊柱侧弯、脊椎炎、风湿性关节炎、类风湿关节炎、风湿病、膝关节囊肿、股骨头坏死、痛风</h4>
+                                <p class="list-group-item-text">40分钟量子灸，症状部位健将卫士，早复阳酒、晚滋阴酒10－15ml／天，本草：百草丹（早晚各一粒）</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，早复阳酒、晚滋阴酒10－15ml／天，本草" data-item="103">
+                                <h4 class="list-group-item-heading">C重症肌无力</h4>
+                                <p class="list-group-item-text">40分钟量子灸，早复阳酒、晚滋阴酒10－15ml／天，本草</p>
+                            </a>
+                            <a href="#" class="list-group-item sdetail-item" data-id="40分钟量子灸，早复阳酒、晚滋阴酒10－15ml／天，本草" data-item="104">
+                                <h4 class="list-group-item-heading">C帕金森</h4>
+                                <p class="list-group-item-text">40分钟量子灸，早复阳酒、晚滋阴酒10－15ml／天，本草</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(".slist").click(function(){
+            var dt = $(this).attr('data-id');
+            $('.sdetail').children('.list-group').hide();
+            $('.sdetail').children('[data-id="'+dt+'"]').show();
+        });
+        $(".sdetail-item").click(function(){
+            if($(this).hasClass('active')){
+                $(this).removeClass('active');
+            }else{
+                $(this).addClass('active');
+            }
+            var slt='';
+            var project = new Array();
+            $('.sgdetail').children('.active').each(function(){
+                var dt = $(this).attr('data-id');
+                project.push($(this).attr('data-item'));
+                var pname = $(this).children('.list-group-item-heading').text();
+                var psolution = $(this).children('.list-group-item-text').text();
+                var dtns = pname+" : "+psolution;
+                slt =slt + dtns+'&#13;&#10;';
+            });
+            window.parent.document.getElementById('evaluation').innerHTML=slt;
+            window.parent.document.getElementById('project').value=project.join(',');
+        });
+    </script>
+
+</div>
+<script src="/static/js/content.js?v=1.0.0"></script>
+
+
+</body></html>

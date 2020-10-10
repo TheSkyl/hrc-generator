@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cebrains.hrc.common.persistence.dao.ConsumableTransferLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cebrains.hrc.common.persistence.model.ConsumableTransferLog">
+        <id column="id" property="id" />
+        <result column="src_id" property="srcId" />
+        <result column="dest_id" property="destId" />
+        <result column="amount" property="amount" />
+        <result column="src_department" property="srcDepartment" />
+        <result column="dest_department" property="destDepartment" />
+        <result column="created_by" property="createdBy" />
+        <result column="create_time" property="createTime" />
+        <result column="flag" property="flag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, src_id AS srcId, dest_id AS destId, amount, src_department AS srcDepartment, dest_department AS destDepartment, created_by AS createdBy, create_time AS createTime, flag
+    </sql>
+
+</mapper>

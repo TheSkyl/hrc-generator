@@ -1,0 +1,169 @@
+@layout("/common/_container.html"){
+<style type="text/css">
+    .section-header{
+        font-size: 15px;
+        font-weight: bold;
+        color:#666666;
+        padding: 10px;
+    }
+</style>
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <span class="section-header">基本信息</span>
+            <div class="hr-line-solid-dark"></div>
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">供货商</label>
+                        <div class="col-sm-9">
+                            ${item.supplierName}
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">收货人</label>
+                        <div class="col-sm-9">
+                            ${item.receiver}
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">收货人电话</label>
+                        <div class="col-sm-9">
+                            ${item.receiverPhone}
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">收货人地址</label>
+                        <div class="col-sm-9">
+                            ${item.receiverAddress}
+                        </div>
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+                </div>
+
+                <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">采购说明</label><br/><br/>
+                            <div class="col-sm-12">
+                                ${item.purchaseMemo}
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">备注</label><br/><br/>
+                            <div class="col-sm-12">
+                                ${item.remark}
+                            </div>
+                        </div>
+
+                    <div class="hr-line-dashed"></div>
+                </div>
+            </div>
+
+<br/><br/>
+            <span class="section-header">发货信息</span>
+            <div class="hr-line-solid-dark"></div>
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">发货物品说明</label>
+                        <div class="col-sm-9">
+                            ${osd.shippingInstructions}
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">产品价格</label>
+                        <div class="col-sm-9">
+                            ${osd.medicinePrice}
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">发货时间</label>
+                        <div class="col-sm-9">
+                            ${osd.deliveryTime,dateFormat="yyyy-MM-dd HH:mm:ss"}
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+
+            </div>
+
+            <div class="col-sm-6">
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">配送信息</label>
+                    <div class="col-sm-9">
+                        ${osd.shippingInformation}
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">配送单号</label>
+                    <div class="col-sm-9">
+                        ${osd.shippingOrderNumber}
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">运费价格</label>
+                    <div class="col-sm-9">
+                        ${osd.shippingPrice}
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+
+            </div>
+            </div>
+            <br/><br/>
+            <input type="hidden" id="outsourceOrder" value="${item.id}" />
+            <span class="section-header">结算信息</span>
+            <div class="hr-line-solid-dark"></div>
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                    <div class="hr-line-dashed"></div>
+                    <#input id="amount" name="金额" underline="true"/>
+                    <#select id="payType" name="支付方式" underline="true">
+                    <option value="">请选择支付方式</option>
+                    @for(p in paymentMethodDict){
+                    <option value="${p.num}">${p.name}</option>
+                    @}
+                </#select>
+                    <#input id="payTime" name="支付时间" clickFun="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" underline="true"/>
+
+                <#input id="accountName" name="收款账户" value="${supplier.legalPerson}" underline="true"/>
+                <#input id="accountNumber" name="收款账号" value="${supplier.accountNumber}" underline="true"/>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="hr-line-dashed"></div>
+                    <#input id="accountBank" name="收款银行" value="${supplier.bank}"  underline="true"/>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">备注</label>
+                        <div class="col-sm-9">
+                            <textarea id="remark" rows="4" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="OutsourceOrderInfoDlg.settleSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="OutsourceOrderInfoDlg.close()"/>
+                </div>
+            </div>
+
+    </div>
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/outsource/outsourceOrder/outsourceOrder_info.js"></script>
+@}

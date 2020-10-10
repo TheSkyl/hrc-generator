@@ -1,0 +1,116 @@
+@layout("/common/_container.html"){
+<script src="${ctxPath}/static/js/plugins/suggest/bootstrap-suggest.min.js"></script>
+<style type="text/css">
+    .col-sm-9{
+        padding-top: 7px;
+    }
+</style>
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">预约会员</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                ${item.memberName}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">康护项目</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                ${item.projectName}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">康护类型</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                ${item.typeName}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">开始时间</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                ${item.startTime,dateFormat="yyyy-MM-dd HH:mm:ss"}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">调护时长</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                ${item.duration}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">结束时间</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                ${item.endTime,dateFormat="yyyy-MM-dd HH:mm:ss"}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                </div>
+
+                <div class="col-sm-6">
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">预约门店</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                ${item.departmentName}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">预约技师</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                ${item.technicianName}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">预约状态</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                ${item.statusName}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">备注</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                ${item.memo}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/member/appointment/appointment_info.js"></script>
+@}

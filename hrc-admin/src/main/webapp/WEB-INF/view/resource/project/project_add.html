@@ -1,0 +1,46 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <input type="hidden" id="id" value="">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                            <#input id="name" name="项目名称" underline="true"/>
+                            <#select id="category" name="项目类别" underline="true">
+                                @for(dict in projectCategories){
+                                <option value="${dict.num}">${dict.name}</option>
+                                @}
+                            </#select>
+                            <#input id="treatmentCourse" name="疗程次数" underline="true"/>
+                            <#input id="priceTreatment1" name="一线疗程价格" underline="true"/>
+                            <#input id="priceTreatment2" name="二线疗程价格" />
+                </div>
+
+                <div class="col-sm-6">
+                            <#input id="priceTreatment3" name="三线疗程价格" underline="true"/>
+                            <#input id="priceOnce1" name="一线单次价格" underline="true"/>
+                            <#input id="priceOnce2" name="二线单次价格" underline="true"/>
+                            <#input id="priceOnce3" name="三线单次价格" underline="true"/>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">疗法方案</label><br/><br/>
+                        <div class="col-sm-12">
+                            <textarea id="solution" rows="3" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="ProjectInfoDlg.addSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="ProjectInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/resource/project/project_info.js"></script>
+@}
